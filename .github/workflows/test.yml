@@ -13,12 +13,12 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
       - name: Install dependencies
         run: npm ci
-      # - name: Mark Percy State for Unaffected Projects
-      #   run: npm run percy:mark:unaffected
-      #   env:
-      #     SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
-      #     REPO: ${{ github.repository }}
-      #     SHA: ${{ github.event.pull_request.head.sha }}
+      - name: Mark Percy State for Unaffected Projects
+        run: npm run percy:mark:unaffected
+        env:
+          SECRET_TOKEN: ${{ secrets.SECRET_TOKEN }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.pull_request.head.sha }}
       - name: Run tests
         run: npx nx affected --target=test --parallel=1
         env:
