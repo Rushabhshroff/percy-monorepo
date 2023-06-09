@@ -19,7 +19,7 @@ async function GetAffected(){
 }
 
 async function MarkStatus(projectSlug){
-    let endpoint = `https://api.github.com/repos/${REPO}/statuses/${SHA})`
+    let endpoint = `https://api.github.com/repos/${REPO}/statuses/${SHA}`
     console.log(endpoint)
     return fetch(endpoint,{
         method:"POST",
